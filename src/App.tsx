@@ -1,24 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import {Themes} from "./Position/position"
+import Index1 from './cpmponent/exportment1/Index1';
+import Index2 from './cpmponent/exportment2/Index2';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 function App() {
+  let themeIndex1 = Themes.Index1Theme
+  let themeIndex2 = Themes.Index2Theme
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/index1' element={<Index1 theme={themeIndex1} themes={Themes}></Index1>}></Route>
+          <Route path='/' element={<Index2 theme={themeIndex2} Themes={Themes}></Index2>}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
